@@ -15,4 +15,9 @@ class AlunoController extends Controller
     public function create(){
         return view('create');
     }
+
+    public function store(Request $request){
+        Aluno::create($request->all());
+        return redirect()->route('alunos-index')->with('success', 'Aluno Cadastrado com Sucesso');
+    }
 }
